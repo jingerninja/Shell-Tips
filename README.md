@@ -24,6 +24,11 @@ find -type f -name "*.php" -ctime -7 | sed -n '/nextend/!p'
 find -type f -name '*.php' -ctime -7 | awk '!/nextend/'
 ```
 
+* Find all php files whose contents have changed between FIRST DATE and SECOND DATE
+```bash
+find -type f -name "*.php" -newerct 2016-01-29 ! -newerct 2016-02-24
+```
+
 * Actively watch the access log and show all lines containing "POST" but not "404"
 ```bash
 tail -f access_log | sed -n '/POST/!d; /404/!p'
